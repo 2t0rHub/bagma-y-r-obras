@@ -1,0 +1,43 @@
+---
+import { Button } from "@/components/ui/button.tsx";
+import { Card, CardContent } from "@/components/ui/card.tsx";
+import Layout from "@/layouts/main.astro";
+---
+
+<Layout content={{ title: "Bagma y R Obras" }}>
+  <!-- Contenido estático de Astro -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-8">
+        Servicios HVAC Profesionales
+      </h1>
+
+      <!-- Componente ShadCN con interactividad -->
+      <div class="flex justify-center gap-4">
+        <Button client:load> Solicitar Presupuesto </Button>
+        <Button variant="outline" client:load> Llamar Ahora </Button>
+      </div>
+
+      <!-- Cards con ShadCN -->
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <Card>
+          <CardContent className="p-6">
+            <h3 class="font-bold text-lg">Emergencias 24/7</h3>
+            <p class="text-gray-600 mt-2">
+              Servicio de urgencias disponible las 24 horas
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-6">
+            <h3 class="font-bold text-lg">Instalación</h3>
+            <p class="text-gray-600 mt-2">
+              Instalación profesional de sistemas HVAC
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+</Layout>

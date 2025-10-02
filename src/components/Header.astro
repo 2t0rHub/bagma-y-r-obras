@@ -1,0 +1,64 @@
+---
+import Logo from "./ui/Logo.astro";
+import { Phone } from "lucide-react";
+---
+
+<header class="font-sans shadow-md border-b-1 sticky">
+  <!-- Navegación principal -->
+  <nav class="bg-white py-4">
+    <div
+      class="max-w-7xl mx-auto px-5 flex items-center justify-between flex-col lg:flex-row gap-4"
+    >
+      <!-- Logo y nombre de la empresa -->
+      <div class="flex gap-5 text-center items-center lg:text-left">
+        <Logo />
+        <h1 class="text-2xl text-accent font-bold">Bagma & R</h1>
+      </div>
+
+      <!-- Enlaces de navegación -->
+      <div
+        class="flex gap-6 mx-8 order-3 lg:order-2 w-full justify-center lg:w-auto mt-4 lg:mt-0"
+      >
+        <a
+          href="#servicios"
+          class="text-gray-700 font-medium hover:text-accent hover:underline hover:underline-offset-4 transition-colors"
+          >Servicios</a
+        >
+        <a
+          href="#precios"
+          class="text-gray-700 font-medium hover:text-accent hover:underline hover:underline-offset-4 transition-colors"
+          >Precios</a
+        >
+        <a
+          href="#garantias"
+          class="text-gray-700 font-medium hover:text-accent hover:underline hover:underline-offset-4 transition-colors"
+          >Garantías</a
+        >
+        <a
+          href="#testimonios"
+          class="text-gray-700 font-medium hover:text-accent hover:underline hover:underline-offset-4 transition-colors"
+          >Testimonios</a
+        >
+        <a
+          href="#contacto"
+          class="text-gray-700 font-medium hover:text-accent hover:underline hover:underline-offset-4 transition-colors"
+          >Contacto</a
+        >
+      </div>
+
+      <!-- Información de contacto y CTA -->
+      <div class="flex items-center gap-5 order-2 lg:order-3">
+        <div class="flex gap-4 items-center">
+          <Phone className="text-accent-foreground" />
+          <div class="text-lg font-bold text-gray-800">900 123 456</div>
+        </div>
+        <a
+          href="tel:900123456"
+          class="bg-accent-foreground text-white px-5 py-2 rounded font-bold hover:bg-accent transition-colors whitespace-nowrap"
+        >
+          Llamar Ahora
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
