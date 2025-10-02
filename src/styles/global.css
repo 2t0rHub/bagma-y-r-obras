@@ -3,6 +3,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-chambray-50: #f0f7fe;
+  --color-chambray-100: #dcebfd;
+  --color-chambray-200: #c1defc;
+  --color-chambray-300: #97c9f9;
+  --color-chambray-400: #66acf4;
+  --color-chambray-500: #428cef;
+  --color-chambray-600: #2c6ee4;
+  --color-chambray-700: #2459d1;
+  --color-chambray-800: #2349aa;
+  --color-chambray-900: #254692;
+  --color-chambray-950: #192852;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -42,8 +56,6 @@
 }
 
 :root {
-  --background: oklch(0.984 0.003 247.858);
-  --foreground: oklch(0.129 0.042 264.695);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);

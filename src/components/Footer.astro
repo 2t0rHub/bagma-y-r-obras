@@ -1,0 +1,98 @@
+---
+import Logo from "./ui/Logo.astro";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
+---
+
+<footer class="bg-chambray-950 text-chambray-200">
+  <div class="container mx-auto px-4 py-16">
+    <div
+      class="grid gap-12 text-center md:grid-cols-2 lg:grid-cols-4 lg:text-left"
+    >
+      <!-- Columna 1: Logo y Descripción -->
+      <div class="flex flex-col items-center lg:items-start">
+        <div class="flex items-center gap-3">
+          <Logo />
+          <span class="text-2xl font-bold text-white">Bagma & R</span>
+        </div>
+        <p class="mt-4 text-sm text-chambray-300 max-w-xs">
+          Soluciones integrales en climatización y reformas para tu hogar y
+          negocio.
+        </p>
+      </div>
+
+      <!-- Columna 2: Enlaces Rápidos -->
+      <div>
+        <h3 class="font-bold text-lg text-white mb-4">Navegación</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#servicios" class="hover:text-white transition-colors"
+              >Servicios</a>
+          </li>
+          <li>
+            <a href="#precios" class="hover:text-white transition-colors"
+              >Precios</a>
+          </li>
+          <li>
+            <a href="#garantias" class="hover:text-white transition-colors"
+              >Garantías</a>
+          </li>
+          <li>
+            <a href="#contacto" class="hover:text-white transition-colors"
+              >Contacto</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Contacto -->
+      <div>
+        <h3 class="font-bold text-lg text-white mb-4">Contacto</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start justify-center lg:justify-start gap-3">
+            <MapPin className="w-4 h-4 mt-1 text-chambray-400 flex-shrink-0" />
+            <span>Calle Falsa 123, 28080 Madrid, España</span>
+          </li>
+          <li class="flex items-center justify-center lg:justify-start gap-3">
+            <Phone className="w-4 h-4 text-chambray-400 flex-shrink-0" />
+            <a href="tel:900123456" class="hover:text-white">900 123 456</a>
+          </li>
+          <li class="flex items-center justify-center lg:justify-start gap-3">
+            <Mail className="w-4 h-4 text-chambray-400 flex-shrink-0" />
+            <a href="mailto:info@bagmar.com" class="hover:text-white"
+              >info@bagmar.com</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Redes Sociales -->
+      <div>
+        <h3 class="font-bold text-lg text-white mb-4">Síguenos</h3>
+        <div class="flex justify-center lg:justify-start gap-4">
+          <a href="#" class="text-chambray-400 hover:text-white"><Twitter /></a>
+          <a href="#" class="text-chambray-400 hover:text-white"><Facebook /></a
+          >
+          <a href="#" class="text-chambray-400 hover:text-white"
+            ><Instagram /></a
+          >
+          <a href="#" class="text-chambray-400 hover:text-white"><Linkedin /></a
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-12 border-t border-chambray-800 pt-8 text-center text-sm text-chambray-400"
+    >
+      <p>
+        &copy; {new Date().getFullYear()} Bagma & R Obras. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
