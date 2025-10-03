@@ -1,0 +1,119 @@
+---
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { AirVent, Flame, Wrench, Zap, CheckCircle2 } from "lucide-react";
+
+const services = [
+  {
+    icon: AirVent,
+    title: "Instalación de Aire Acondicionado",
+    description:
+      "Sistemas de climatización eficientes para tu hogar o negocio. Confort garantizado en cualquier estación.",
+    image: "/src/assets/service-ac.png",
+    details: [
+      "Estudio y asesoramiento personalizado.",
+      "Instalación de equipos split, multisplit y por conductos.",
+      "Mantenimiento preventivo y correctivo.",
+    ],
+  },
+  {
+    icon: Flame,
+    title: "Instalación de Calderas",
+    description:
+      "Soluciones de calefacción seguras y de bajo consumo. Trabajamos con las mejores marcas del mercado.",
+    image: "/src/assets/service-boiler.png",
+    details: [
+      "Calderas de condensación de alta eficiencia.",
+      "Sistemas de calefacción por radiadores y suelo radiante.",
+      "Revisión y puesta a punto anual.",
+    ],
+  },
+  {
+    icon: Wrench,
+    title: "Reformas en General",
+    description:
+      "Desde pequeñas reparaciones hasta reformas integrales. Transformamos tus espacios con profesionalidad y atención al detalle.",
+    image: "/src/assets/service-reform.png",
+    details: [
+      "Reformas de baños y cocinas.",
+      "Albañilería, fontanería y electricidad.",
+      "Acabados de alta calidad y cumplimiento de plazos.",
+    ],
+  },
+  {
+    icon: Zap,
+    title: "Servicio de Urgencias 24/7",
+    description:
+      "Atendemos averías y emergencias con la máxima rapidez para devolverte la tranquilidad y el confort.",
+    image: "/src/assets/service-emergency.png",
+    details: [
+      "Disponibilidad total, 24 horas al día.",
+      "Diagnóstico rápido y preciso in situ.",
+      "Soluciones efectivas para todo tipo de averías.",
+    ],
+  },
+];
+---
+
+<section id="servicios" class="py-24 sm:py-32">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-chambray-900">
+        Nuestros Servicios Destacados
+      </h2>
+      <p class="mt-4 text-lg text-chambray-600">
+        Soluciones integrales para tu hogar y negocio. Calidad, eficiencia y
+        rapidez garantizadas.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        services.map((service) => {
+          const Icon = service.icon;
+          return (
+            <Card
+              className={`
+                bg-white
+                shadow-lg
+                hover:shadow-2xl
+                hover:-translate-y-1 
+                transition-all 
+                duration-300 
+                flex flex-col
+              `}
+            >
+              <img
+                src={service.image}
+                alt={`Imagen de ${service.title}`}
+                class="w-full h-40 object-cover rounded-t-lg"
+              />
+              <CardHeader>
+                <CardTitle className="flex items-start gap-2 text-xl">
+                  <Icon className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
+                  <span>{service.title}</span>
+                </CardTitle>
+                <CardDescription>{service.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow flex flex-col">
+                <ul class="space-y-2 text-sm text-chambray-700 mt-2">
+                  {service.details.map((detail) => (
+                    <li class="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

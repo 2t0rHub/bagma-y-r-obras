@@ -1,0 +1,96 @@
+---
+import { Button } from "@/components/ui/button.tsx";
+import { Card, CardContent } from "@/components/ui/card.tsx";
+import { Award, Clock, Users } from "lucide-react";
+---
+
+<!-- Hero Section -->
+<section
+  id="hero"
+  class="relative
+    flex
+    items-center
+    bg-chambray-900
+    text-white
+    py-24
+    sm:py-32
+    lg:min-h-screen"
+>
+  <!-- Background Image & Overlay -->
+  <div class="absolute inset-0">
+    <img
+      src="/src/assets/banner-hero.png"
+      alt="Técnico trabajando en una unidad de aire acondicionado en un tejado"
+      class="w-full h-full object-cover opacity-20"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-chambray-950 to-chambray-950/20"
+    >
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div
+    class="relative container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center"
+  >
+    <!-- Left Column: Text -->
+    <div class="text-center lg:text-left">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+        Soluciones Expertas en Climatización y Reformas
+      </h1>
+      <p class="mt-6 text-lg text-chambray-200 max-w-xl mx-auto lg:mx-0">
+        Tu confort es nuestra prioridad. Ofrecemos servicios de instalación,
+        mantenimiento y reparación con la máxima calidad y garantía.
+      </p>
+      <div
+        class="mt-10 flex items-center justify-center lg:justify-start gap-4"
+      >
+        <Button
+          size="lg"
+          className="hover:bg-chambray-800/60  hover:scale-105 transition-all"
+          client:load
+        >
+          Solicitar Presupuesto
+        </Button>
+        <Button
+          size="lg"
+          variant="outline"
+          className="border-white text-black hover:bg-white/10 hover:text-white"
+          client:load
+        >
+          Ver Servicios
+        </Button>
+      </div>
+    </div>
+
+    <!-- Right Column: Stats Cards -->
+    <div class="grid sm:grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-6">
+      <Card
+        className="bg-chambray-900/40 border-chambray-300/60 border-2 text-chambray-100 backdrop-blur-sm"
+      >
+        <CardContent className="p-4 flex items-center gap-4">
+          <Award className="w-6 h-6 text-chambray-400 flex-shrink-0" />
+          <div>
+            <h3 class="font-bold text-lg">15+ Años de Experiencia</h3>
+            <p class="text-xs text-chambray-300">
+              Profesionales cualificados a tu servicio.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+      <Card
+        className="bg-chambray-900/40 border-chambray-300/60 border-2 text-chambray-100 backdrop-blur-sm"
+      >
+        <CardContent className="p-4 flex items-center gap-4">
+          <Clock className="w-6 h-6 text-chambray-400 flex-shrink-0" />
+          <div>
+            <h3 class="font-bold text-lg">Atención 24/7</h3>
+            <p class="text-xs text-chambray-300">
+              Disponibles para urgencias en cualquier momento.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>

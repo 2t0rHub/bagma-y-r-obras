@@ -1,0 +1,89 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Award, Clock, ShieldCheck, Users } from "lucide-react";
+
+const features = [
+  {
+    icon: Award,
+    title: "15+ Años de Experiencia",
+    description:
+      "Un equipo de profesionales cualificados y con una amplia trayectoria en el sector a tu completo servicio.",
+    className: "lg:col-span-2",
+    bgColor: "bg-chambray-100",
+  },
+  {
+    icon: Clock,
+    title: "Atención 24/7",
+    description:
+      "Estamos disponibles para atender urgencias y consultas en cualquier momento del día.",
+    className: "lg:col-span-1",
+    bgColor: "bg-blue-100",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Calidad y Garantía",
+    description:
+      "Utilizamos los mejores materiales y ofrecemos garantía en todas nuestras instalaciones y reparaciones.",
+    className: "lg:col-span-1",
+    bgColor: "bg-green-100",
+  },
+  {
+    icon: Users,
+    title: "Trato Personalizado",
+    description:
+      "Cada cliente es único. Escuchamos tus necesidades para ofrecerte la solución que mejor se adapta a ti.",
+    className: "lg:col-span-2",
+    bgColor: "bg-yellow-100",
+  },
+];
+---
+
+<section id="porque-elegirnos" class="py-24 sm:py-32 bg-chambray-50">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-chambray-900">
+        Tu Confort, Nuestra Prioridad
+      </h2>
+      <p class="mt-4 text-lg text-chambray-600">
+        Descubre por qué somos la elección de confianza para cientos de clientes
+        satisfechos.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {
+        features.map((feature) => {
+          const Icon = feature.icon;
+          return (
+            <Card
+              className={`
+                ${feature.className} 
+                ${feature.bgColor}
+                border-0
+                shadow-lg 
+                hover:shadow-xl 
+                hover:-translate-y-1 
+                transition-all 
+                duration-300
+              `}
+            >
+              <CardHeader>
+                <div class="flex items-center gap-4">
+                  <Icon className="w-8 h-8 text-chambray-900" />
+                  <CardTitle className="text-xl font-bold text-chambray-900">
+                    {feature.title}
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p class="text-chambray-700">{feature.description}</p>
+              </CardContent>
+            </Card>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
