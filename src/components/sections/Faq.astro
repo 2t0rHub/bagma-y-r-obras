@@ -1,0 +1,60 @@
+---
+import { FaqList } from "@/components/FaqList.tsx";
+
+const faqData = [
+  {
+    id: "item-1",
+    question: "¿Qué tipo de servicios de climatización ofrecen?",
+    answer:
+      "Ofrecemos una gama completa de servicios, incluyendo instalación, mantenimiento y reparación de sistemas de aire acondicionado (split, multisplit, por conductos) y calderas de condensación. Trabajamos con las mejores marcas para garantizar eficiencia y durabilidad.",
+  },
+  {
+    id: "item-2",
+    question: "¿Realizan presupuestos sin compromiso?",
+    answer:
+      "Sí, todos nuestros presupuestos son gratuitos y sin ningún tipo de compromiso. Estudiamos tu caso, te asesoramos sobre la mejor solución y te presentamos una oferta detallada y transparente.",
+  },
+  {
+    id: "item-3",
+    question: "¿Qué garantía tienen sus trabajos?",
+    answer:
+      "Ofrecemos una garantía completa tanto en los materiales y equipos instalados como en la mano de obra. Nuestra prioridad es tu tranquilidad y la calidad a largo plazo de nuestras instalaciones y reparaciones.",
+  },
+  {
+    id: "item-4",
+    question: "¿Tienen servicio de urgencias 24 horas?",
+    answer:
+      "¡Por supuesto! Entendemos que las averías no tienen horario. Nuestro equipo de urgencias está disponible 24/7 para atender cualquier imprevisto y devolverte el confort lo antes posible.",
+  },
+  {
+    id: "item-5",
+    question: "¿En qué zonas de Madrid trabajan?",
+    answer:
+      "Prestamos servicio en toda la Comunidad de Madrid, tanto en la capital como en los municipios de la periferia. No dudes en consultarnos para confirmar la cobertura en tu zona.",
+  },
+];
+---
+
+<section id="faq" class="py-24 sm:py-32 bg-chambray-50">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-chambray-900">
+        Preguntas Frecuentes
+      </h2>
+      <p class="mt-4 text-lg text-chambray-600">
+        Resolvemos tus dudas más comunes para que tomes la mejor decisión con
+        total confianza.
+      </p>
+    </div>
+
+    <!-- Accordion with Schema.org for SEO -->
+    <div
+      class="max-w-3xl mx-auto"
+      itemscope
+      itemtype="https://schema.org/FAQPage"
+    >
+      <FaqList client:visible data={faqData} />
+    </div>
+  </div>
+</section>

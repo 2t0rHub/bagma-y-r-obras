@@ -4,10 +4,10 @@ import { Phone, Menu } from "lucide-react";
 ---
 
 <header
-  class="bg-background/95 font-sans shadow-md border-b border-border sticky top-0 z-50"
+  class="bg-background/95 flex-grow font-sans shadow-md border-b border-border sticky top-0 z-50"
 >
   <!-- Navegación principal -->
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-2">
     <div class="flex items-center justify-between h-20">
       <!-- Logo y nombre de la empresa -->
       <a href="/" class="flex items-center gap-3">
@@ -18,12 +18,12 @@ import { Phone, Menu } from "lucide-react";
       <!-- Navegación para pantallas grandes -->
       <nav class="hidden lg:flex gap-6">
         <a
-          href="#servicios"
+          href="#services"
           class="font-medium text-lg hover:text-accent transition-colors"
           >Servicios</a
         >
         <a
-          href="#precios"
+          href="#pricing"
           class="font-medium text-lg hover:text-accent transition-colors"
           >Precios</a
         >
@@ -33,7 +33,7 @@ import { Phone, Menu } from "lucide-react";
           >Garantías</a
         >
         <a
-          href="#contacto"
+          href="#contact"
           class="font-medium text-lg hover:text-accent transition-colors"
           >Contacto</a
         >
@@ -73,22 +73,22 @@ import { Phone, Menu } from "lucide-react";
   <div id="mobile-menu" class="hidden lg:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-border">
       <a
-        href="#servicios"
+        href="#services"
         class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent/20"
         >Servicios</a
       >
       <a
-        href="#precios"
+        href="#pricing"
         class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent/20"
         >Precios</a
       >
       <a
-        href="#garantias"
+        href="#guarantees"
         class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent/20"
         >Garantías</a
       >
       <a
-        href="#contacto"
+        href="#contact"
         class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent/20"
         >Contacto</a
       >
@@ -119,6 +119,15 @@ import { Phone, Menu } from "lucide-react";
       const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
       mobileMenu.classList.toggle("hidden");
       menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+    });
+
+    // Cierra el menú al hacer clic en un enlace
+    const links = mobileMenu.querySelectorAll("a");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 </script>

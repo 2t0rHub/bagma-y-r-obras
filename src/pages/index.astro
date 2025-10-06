@@ -4,11 +4,19 @@ import Hero from "@/components/sections/Hero.astro";
 import Services from "@/components/sections/Services.astro";
 import WhyChooseUs from "@/components/sections/WhyChooseUs.astro";
 import Contact from "@/components/sections/Contact.astro";
+import Faq from "@/components/sections/Faq.astro";
 ---
 
-<Layout content={{ title: "Bagma y R Obras" }}>
+<Layout
+  content={{
+    title: "Bagma y R Obras | Climatización y Reformas en Madrid",
+    description:
+      "Expertos en instalación y mantenimiento de aire acondicionado, calderas y reformas integrales en Madrid. Ofrecemos servicio de urgencias 24/7. ¡Pide tu presupuesto!",
+  }}
+>
   <Hero />
   <Services />
   <WhyChooseUs />
+  <Faq />
   <Contact />
 </Layout>

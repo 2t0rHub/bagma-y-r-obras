@@ -1,0 +1,36 @@
+---
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion.tsx";
+
+export interface Props {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+const { id, question, answer } = Astro.props;
+---
+
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <AccordionItem value={id} className="border-b border-chambray-200">
+    <AccordionTrigger className="text-left hover:no-underline">
+      <h3 itemprop="name" class="text-lg font-semibold text-chambray-800">
+        {question}
+      </h3>
+    </AccordionTrigger>
+    <AccordionContent>
+      <div
+        itemscope
+        itemprop="acceptedAnswer"
+        itemtype="https://schema.org/Answer"
+      >
+        <p itemprop="text" class="text-chambray-700">
+          {answer}
+        </p>
+      </div>
+    </AccordionContent>
+  </AccordionItem>
+</div>

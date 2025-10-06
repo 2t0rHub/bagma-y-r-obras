@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
 ---
 
 <section id="contact" class="py-24 sm:py-32 bg-white">
@@ -28,17 +28,30 @@ import { Phone, Mail, MapPin } from "lucide-react";
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Left Column: Contact Info & Map -->
       <div class="space-y-8">
-        <h3 class="text-2xl font-bold text-chambray-800">
-          Información de Contacto
-        </h3>
+        <div>
+          <h3 class="text-2xl font-bold text-chambray-800">
+            Información de Contacto
+          </h3>
+          <p class="mt-2 text-chambray-600">
+            Atendemos en toda la Comunidad de Madrid.
+          </p>
+        </div>
 
-        <div class="space-y-6 text-chambray-700">
+        <div
+          class="space-y-6 text-chambray-700"
+          itemscope
+          itemtype="http://schema.org/LocalBusiness"
+        >
+          <meta itemprop="name" content="Bagma y R Obras" />
+          <meta itemprop="image" content="/logo.png" />
+          <!-- Asegúrate de tener un logo.png en tu carpeta public -->
           <div class="flex items-start gap-4">
             <Phone className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
             <div>
               <h4 class="font-semibold">Teléfono</h4>
               <a
                 href="tel:+34666666666"
+                itemprop="telephone"
                 class="hover:text-chambray-900 transition-colors"
                 >+34 666 666 666</a
               >
@@ -50,16 +63,27 @@ import { Phone, Mail, MapPin } from "lucide-react";
               <h4 class="font-semibold">Email</h4>
               <a
                 href="mailto:info@bagma.com"
+                itemprop="email"
                 class="hover:text-chambray-900 transition-colors"
                 >info@bagma.com</a
               >
             </div>
           </div>
-          <div class="flex items-start gap-4">
+          <div
+            class="flex items-start gap-4"
+            itemprop="address"
+            itemscope
+            itemtype="http://schema.org/PostalAddress"
+          >
             <MapPin className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
             <div>
               <h4 class="font-semibold">Ubicación</h4>
-              <p>Calle Falsa 123, 28080, Madrid, España</p>
+              <p>
+                <span itemprop="streetAddress">Calle Portal de Belén 35</span>,
+                <span itemprop="postalCode">28500</span>,
+                <span itemprop="addressLocality">Madrid</span>,
+                <span itemprop="addressCountry">España</span>
+              </p>
             </div>
           </div>
         </div>
@@ -83,21 +107,55 @@ import { Phone, Mail, MapPin } from "lucide-react";
       <!-- Right Column: Contact Form -->
       <Card className="bg-chambray-50 border-0 shadow-lg flex flex-col">
         <CardHeader>
-          <CardTitle className="text-2xl text-chambray-900"
+          <CardTitle className="text-3xl text-chambray-900"
             >Envíanos un mensaje</CardTitle
           >
         </CardHeader>
-        <CardContent className="flex-grow flex">
-          <form class="space-y-4 flex flex-col w-full">
-            <Input type="text" placeholder="Tu Nombre" name="name" required />
-            <Input type="email" placeholder="Tu Email" name="email" required />
-            <Input type="text" placeholder="Asunto" name="subject" />
-            <Textarea
-              placeholder="Tu Mensaje..."
-              name="message"
-              className="flex-grow"
-              required
-            />
+        <CardContent id="form-container" className="flex-grow flex">
+          <!-- Form -->
+          <form id="contact-form" class="space-y-4 flex flex-col w-full">
+            <div class="space-y-1">
+              <label for="name" class="text-sm font-medium text-chambray-700"
+                >Tu Nombre <span class="text-red-500">*</span></label
+              >
+              <Input id="name" type="text" name="name" required />
+            </div>
+            <div class="space-y-1">
+              <label for="email" class="text-sm font-medium text-chambray-700"
+                >Tu Email <span class="text-red-500">*</span></label
+              >
+              <Input id="email" type="email" name="email" required />
+            </div>
+            <div class="space-y-1">
+              <label for="phone" class="text-sm font-medium text-chambray-700"
+                >Tu Teléfono <span class="text-red-500">*</span></label
+              >
+              <Input
+                id="phone"
+                type="tel"
+                name="phone"
+                pattern="[0-9\s+]{9,15}"
+                title="Por favor, introduce un número de teléfono válido (9-15 dígitos)."
+                required
+              />
+            </div>
+            <div class="space-y-1">
+              <label for="subject" class="text-sm font-medium text-chambray-700"
+                >Asunto</label
+              >
+              <Input id="subject" type="text" name="subject" />
+            </div>
+            <div class="space-y-1 flex-grow flex flex-col">
+              <label for="message" class="text-sm font-medium text-chambray-700"
+                >Tu Mensaje <span class="text-red-500">*</span></label
+              >
+              <Textarea
+                id="message"
+                name="message"
+                className="flex-grow"
+                required
+              />
+            </div>
             <Button
               type="submit"
               size="lg"
@@ -106,8 +164,45 @@ import { Phone, Mail, MapPin } from "lucide-react";
               Enviar Mensaje
             </Button>
           </form>
+          <!-- Confirmation Message -->
+          <div id="confirmation-message" class="hidden w-full">
+            <div
+              class="flex flex-col items-center justify-center text-center h-full w-full"
+            >
+              <CheckCircle2 className="w-16 h-16 text-green-600 mb-4" />
+              <h3 class="text-2xl font-bold text-chambray-900">
+                ¡Mensaje Enviado!
+              </h3>
+              <p class="mt-2 text-chambray-600">
+                Gracias por contactarnos. Te responderemos lo antes posible.
+              </p>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const confirmationMessage = document.getElementById("confirmation-message");
+
+    if (form instanceof HTMLFormElement && confirmationMessage) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Evita el envío y recarga de la página
+
+        // Oculta el formulario y muestra el mensaje de confirmación
+        form.style.display = "none";
+        confirmationMessage.style.display = "flex";
+
+        // Después de 10 segundos, oculta el mensaje y muestra el formulario de nuevo
+        setTimeout(() => {
+          confirmationMessage.style.display = "none";
+          form.style.display = "flex";
+          form.reset(); // Limpia los campos del formulario
+        }, 10000);
+      });
+    }
+    // 5000 milisegundos = 5 segundos);
+  </script>
 </section>
