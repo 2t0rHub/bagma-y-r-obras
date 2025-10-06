@@ -1,0 +1,113 @@
+---
+import { Button } from "@/components/ui/button.tsx";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import { Textarea } from "@/components/ui/textarea.tsx";
+import { Phone, Mail, MapPin } from "lucide-react";
+---
+
+<section id="contact" class="py-24 sm:py-32 bg-white">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-chambray-900">
+        Contacta con Nosotros
+      </h2>
+      <p class="mt-4 text-lg text-chambray-600">
+        ¿Tienes un proyecto en mente o una urgencia? Estamos aquí para ayudarte.
+        Rellena el formulario o utiliza nuestros otros canales de contacto.
+      </p>
+    </div>
+
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Left Column: Contact Info & Map -->
+      <div class="space-y-8">
+        <h3 class="text-2xl font-bold text-chambray-800">
+          Información de Contacto
+        </h3>
+
+        <div class="space-y-6 text-chambray-700">
+          <div class="flex items-start gap-4">
+            <Phone className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold">Teléfono</h4>
+              <a
+                href="tel:+34666666666"
+                class="hover:text-chambray-900 transition-colors"
+                >+34 666 666 666</a
+              >
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <Mail className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold">Email</h4>
+              <a
+                href="mailto:info@bagma.com"
+                class="hover:text-chambray-900 transition-colors"
+                >info@bagma.com</a
+              >
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <MapPin className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold">Ubicación</h4>
+              <p>Calle Falsa 123, 28080, Madrid, España</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div
+          class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-chambray-200"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d228.25693636263836!2d-3.4760170236734456!3d40.31781696109395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1759762810685!5m2!1ses!2ses"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación en Google Maps"></iframe>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <Card className="bg-chambray-50 border-0 shadow-lg flex flex-col">
+        <CardHeader>
+          <CardTitle className="text-2xl text-chambray-900"
+            >Envíanos un mensaje</CardTitle
+          >
+        </CardHeader>
+        <CardContent className="flex-grow flex">
+          <form class="space-y-4 flex flex-col w-full">
+            <Input type="text" placeholder="Tu Nombre" name="name" required />
+            <Input type="email" placeholder="Tu Email" name="email" required />
+            <Input type="text" placeholder="Asunto" name="subject" />
+            <Textarea
+              placeholder="Tu Mensaje..."
+              name="message"
+              className="flex-grow"
+              required
+            />
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full bg-chambray-600 hover:bg-chambray-700 text-white"
+            >
+              Enviar Mensaje
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>

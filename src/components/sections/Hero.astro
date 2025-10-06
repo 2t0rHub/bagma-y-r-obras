@@ -60,43 +60,45 @@ const heroStats = [
         mantenimiento y reparación con la máxima calidad y garantía.
       </p>
       <div
-        class="mt-10 flex items-center justify-center lg:justify-start gap-4"
+        class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
       >
         <Button
           size="lg"
-          className="hover:bg-chambray-800/60  hover:scale-105 transition-all"
+          className="bg-chambray-500 hover:bg-chambray-500/90 text-white text-lg hover:scale-105 transition-all"
           client:load
         >
-          Solicitar Presupuesto
+          <a href="#contact"> Solicitar Presupuesto </a>
         </Button>
         <Button
           size="lg"
           variant="outline"
-          className="border-white text-black hover:bg-white/10 hover:text-white"
+          className="border-white text-black hover:bg-white/10 text-lg hover:text-white"
           client:load
         >
-          Ver Servicios
+          <a href="#services"> Ver Servicios </a>
         </Button>
       </div>
     </div>
 
     <!-- Right Column: Stats Cards -->
-    <div class="space-y-4">
-      <div class="flex flex-col sm:flex-row gap-4 lg:gap-6">
+    <div class="space-y-4 items-center justify-center">
+      <div
+        class="flex flex-row gap-3 sm:gap-4 lg:gap-6 flex-wrap sm:flex-nowrap justify-center"
+      >
         {
           heroStats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <Card className="m-2 bg-chambray-500/40 border-chambray-300/60 border-2 backdrop-blur-sm w-full flex flex-col hover:-translate-y-1 hover:scale-105 hover:bg-chambray-600 transition-all duration-200">
-                <CardHeader className="p-2 text-6xl font-extrabold text-center text-white">
+              <Card className="gap-0 bg-chambray-500/50 border-chambray-300/60 border-2 backdrop-blur-sm w-full flex flex-col hover:-translate-y-1 hover:scale-105 hover:bg-chambray-600 transition-all duration-200">
+                <CardHeader className="text-3xl sm:text-5xl font-extrabold text-center text-white">
                   {stat.header}
                 </CardHeader>
-                <CardContent className="pt-0 flex-grow flex flex-col justify-center text-center text-white">
+                <CardContent className="p-0 pt-2 flex-grow flex flex-col justify-center text-center text-white">
                   <div>
-                    <h3 class="font-bold text-2xl leading-tight">
+                    <h3 class="font-bold text-base sm:text-2xl leading-tight">
                       {stat.title}
                     </h3>
-                    <p class="text-sm text-chambray-300 mt-1">
+                    <p class="text-xs sm:text-sm text-chambray-300 mt-1">
                       {stat.description}
                     </p>
                   </div>
