@@ -8,10 +8,12 @@ const { content } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icon.png" />
     <title>{content.title}</title>
     <meta name="description" content={content.description} />
+    <!-- Color de la barra del navegador en móviles -->
+    <meta name="theme-color" content="#1a2b4a" />
   </head>
   <body class="min-h-screen font-sans">
     <Header />

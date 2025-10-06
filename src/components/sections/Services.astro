@@ -86,14 +86,15 @@ const services = [
                 transition-all 
                 duration-300 
                 flex flex-col
+                !pt-0
               `}
             >
               <img
                 src={service.image}
                 alt={`Imagen de ${service.title}`}
-                class="w-full h-40 object-cover rounded-t-lg"
+                class="w-full h-50 object-cover rounded-t-lg"
               />
-              <CardHeader>
+              <CardHeader className="pt-0">
                 <h3 class="text-xl font-bold">
                   <CardTitle className="flex items-start gap-2">
                     <Icon className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
