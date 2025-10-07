@@ -1,15 +1,11 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@plugin "@tailwindcss/typography";
-
 /* Font */
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/600.css";
 @import "@fontsource/inter/800.css";
 
-body {
-  font-family: "Inter", system-ui, sans-serif;
-}
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -144,12 +140,6 @@ body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
-}
-
-/* src/styles/global.css */
-h1,
-h2,
-h3 {
-  text-rendering: optimizeLegibility;
 }
