@@ -20,7 +20,7 @@ import {
       <!-- Columna 1: Logo y Descripción -->
       <div class="flex flex-col items-center lg:items-start lg:col-span-2">
         <div class="flex items-center gap-3">
-          <Logo />
+          <Logo size="sm" />
           <span class="text-2xl font-bold text-white">{COMPANY.name}</span>
         </div>
         <p class="mt-4 text-sm text-chambray-300 max-w-md">
@@ -113,17 +113,11 @@ import {
     </div>
   </div>
   <div
-    class="mt-12 border-t border-chambray-800 pt-8 text-center text-sm text-chambray-400"
+    class="mt-12 border-t border-chambray-800 pt-8 pb-2 text-center text-sm text-chambray-400"
   >
     <p>
       &copy; {new Date().getFullYear()}
-      {COMPANY.name}. Todos los derechos reservados. | <a
-        href="/aviso-legal"
-        class="hover:text-white transition-colors">Aviso Legal</a
-      > | <a
-        href="/politica-de-privacidad"
-        class="hover:text-white transition-colors">Política de Privacidad</a
-      >
+      {COMPANY.name}. Todos los derechos reservados.
     </p>
   </div>
 </footer>

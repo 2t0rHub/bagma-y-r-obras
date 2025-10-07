@@ -1,11 +1,27 @@
 ---
-type Props = {};
+import { cva, type VariantProps } from "class-variance-authority";
 
-const {} = Astro.props;
+const logo = cva(
+  "bg-white bg-clip-border rounded-full flex items-center justify-center",
+  {
+    variants: {
+      size: {
+        sm: "h-16 w-16",
+        md: "h-20 w-20",
+        lg: "h-24 w-24",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
+
+interface Props extends VariantProps<typeof logo> {}
+
+const { size } = Astro.props;
 ---
 
-<div
-  class="h-20 w-20 bg-white bg-clip-border rounded-full flex items-center justify-center"
->
+<div class={logo({ size })}>
   <img src="/new-logo.png" alt="Logo Bagma" />
 </div>

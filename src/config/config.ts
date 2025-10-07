@@ -7,9 +7,9 @@ export const SITE = {
 };
 
 export const COMPANY = {
-  name: "Bagma y R Obras",
-  legal_name: "Bagma y R Obras S.L.", // <-- REVISAR Y COMPLETAR
-  nif: "B-12345678", // <-- REVISAR Y COMPLETAR
+  name: "Bagma & R Obras",
+  legal_name: "Bagma y R Soluciones y Obras S.L.U.",
+  nif: "B-56945702",
   address: "Calle de las Hilanderas 31, 28500, Arganda del Rey, Madrid, España",
   street: "Calle de las Hilanderas 31",
   city: "Arganda del Rey",
@@ -19,5 +19,5 @@ export const COMPANY = {
   email: "info@bagma-r.es",
   phone: "+34659358953",
   phone_display: "659 358 953",
-  registry_data: "Inscrita en el Registro Mercantil de Madrid...", // <-- REVISAR Y COMPLETAR
+  registry_data: "Inscrita en el Registro Mercantil de Madrid",
 };
