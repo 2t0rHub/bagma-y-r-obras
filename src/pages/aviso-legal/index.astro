@@ -1,0 +1,147 @@
+---
+import Layout from "@/layouts/main.astro";
+import { SITE, COMPANY } from "@/config/config";
+---
+
+<Layout
+  title="Aviso Legal - Bagma y R Obras"
+  description="Aviso Legal de Bagma y R Obras. Información legal sobre el titular de la web, condiciones de uso y propiedad intelectual."
+>
+  <main class="bg-white">
+    <!-- Page Header -->
+    <div class="bg-chambray-50 py-16 sm:py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-chambray-900">
+          Aviso Legal
+        </h1>
+        <p class="mt-4 text-lg text-chambray-600 max-w-2xl mx-auto">
+          Información importante sobre el uso de nuestro sitio web y los
+          derechos y responsabilidades de los usuarios.
+        </p>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="py-16 sm:py-24">
+      <article
+        class="prose prose-lg max-w-4xl mx-auto px-4 prose-headings:text-chambray-900 prose-headings:font-bold prose-a:text-chambray-600 prose-a:font-medium hover:prose-a:text-chambray-800 prose-strong:text-chambray-800"
+      >
+        <p class="lead !text-chambray-600 !mt-0">
+          Última actualización: 1 de Enero, 2024.
+        </p>
+        <p>
+          El presente Aviso Legal regula las condiciones generales de acceso y
+          utilización del sitio web accesible en la dirección URL <a
+            href={SITE.url}>{SITE.url}</a
+          > (en adelante, el sitio web), que {COMPANY.name} pone a disposición de
+          los usuarios de Internet.
+        </p>
+
+        <h2>1. DATOS IDENTIFICATIVOS DEL TITULAR</h2>
+        <p>
+          En cumplimiento del deber de información estipulado en el artículo 10
+          de la Ley 34/2002 de 11 de julio de Servicios de la Sociedad de la
+          Información y de Comercio Electrónico, se comunican los siguientes
+          datos:
+        </p>
+        <div
+          class="not-prose bg-chambray-50 p-6 rounded-xl border border-chambray-200 my-8"
+        >
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-base">
+            <div class="sm:col-span-2">
+              <dt class="font-semibold text-gray-900">Titular:</dt>
+              <dd class="mt-1 text-gray-700">{COMPANY.legal_name}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">NIF:</dt>
+              <dd class="mt-1 text-gray-700">{COMPANY.nif}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">Teléfono:</dt>
+              <dd class="mt-1 text-gray-700">
+                <a href={`tel:${COMPANY.phone}`}>{COMPANY.phone_display}</a>
+              </dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="font-semibold text-gray-900">Domicilio Social:</dt>
+              <dd class="mt-1 text-gray-700">{COMPANY.address}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">Correo electrónico:</dt>
+              <dd class="mt-1 text-gray-700">
+                <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+              </dd>
+            </div>
+            {
+              COMPANY.registry_data && (
+                <div class="sm:col-span-2">
+                  <dt class="font-semibold text-gray-900">
+                    Datos registrales:
+                  </dt>
+                  <dd class="mt-1 text-gray-700">{COMPANY.registry_data}</dd>
+                </div>
+              )
+            }
+          </dl>
+        </div>
+
+        <h2>2. OBJETO</h2>
+        <p>
+          El sitio web facilita a los usuarios del mismo el acceso a información
+          y servicios prestados por {COMPANY.name} a aquellas personas u organizaciones
+          interesadas en los mismos.
+        </p>
+
+        <h2>3. CONDICIONES DE USO</h2>
+        <p>
+          El acceso y/o uso de este portal atribuye la condición de USUARIO, que
+          acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso
+          aquí reflejadas. La utilización del sitio web implica la aceptación
+          plena y sin reservas de todas y cada una de las disposiciones
+          incluidas en este Aviso Legal.
+        </p>
+
+        <h2>4. PROPIEDAD INTELECTUAL E INDUSTRIAL</h2>
+        <p>
+          {COMPANY.name} es titular de todos los derechos de propiedad intelectual
+          e industrial de su página web, así como de los elementos contenidos en
+          la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software
+          o textos; marcas o logotipos, etc.). Todos los derechos reservados.
+        </p>
+        <p>
+          En virtud de lo dispuesto en la Ley de Propiedad Intelectual, quedan
+          expresamente prohibidas la reproducción, la distribución y la
+          comunicación pública, incluida su modalidad de puesta a disposición,
+          de la totalidad o parte de los contenidos de esta página web, con
+          fines comerciales, en cualquier soporte y por cualquier medio técnico,
+          sin la autorización de {COMPANY.name}.
+        </p>
+
+        <h2>5. EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD</h2>
+        <p>
+          {COMPANY.name} no se hace responsable, en ningún caso, de los daños y perjuicios
+          de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores
+          u omisiones en los contenidos, falta de disponibilidad del portal o la
+          transmisión de virus o programas maliciosos o lesivos en los contenidos,
+          a pesar de haber adoptado todas las medidas tecnológicas necesarias para
+          evitarlo.
+        </p>
+
+        <h2>6. MODIFICACIONES</h2>
+        <p>
+          {COMPANY.name} se reserva el derecho de efectuar sin previo aviso las modificaciones
+          que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir
+          tanto los contenidos y servicios que se presten a través de la misma como
+          la forma en la que éstos aparezcan presentados o localizados en su portal.
+        </p>
+
+        <h2>7. LEGISLACIÓN APLICABLE Y JURISDICCIÓN</h2>
+        <p>
+          La relación entre {COMPANY.name} y el USUARIO se regirá por la normativa
+          española vigente y cualquier controversia se someterá a los Juzgados y
+          tribunales de la ciudad de Madrid.
+        </p>
+      </article>
+    </div>
+  </main>
+</Layout>

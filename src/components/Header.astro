@@ -1,5 +1,6 @@
 ---
 import Logo from "./ui/Logo.astro";
+import { COMPANY } from "@/config";
 import { Phone, Menu } from "lucide-react";
 ---
 
@@ -12,7 +13,7 @@ import { Phone, Menu } from "lucide-react";
       <!-- Logo y nombre de la empresa -->
       <a href="/" class="flex items-center gap-3">
         <Logo />
-        <span class="text-2xl font-bold text-chambray-800">Bagma & R</span>
+        <span class="text-2xl font-bold text-chambray-800">{COMPANY.name}</span>
       </a>
 
       <!-- Navegación para pantallas grandes -->
@@ -41,12 +42,15 @@ import { Phone, Menu } from "lucide-react";
 
       <!-- Contacto y CTA para pantallas grandes -->
       <div class="hidden lg:flex items-center gap-6">
-        <div class="flex items-center gap-4">
+        <a href={`tel:${COMPANY.phone}`} class="flex items-center gap-4 group">
           <Phone className="text-accent-foreground" />
-          <div class="text-lg font-bold">900 123 456</div>
-        </div>
+          <span
+            class="text-lg font-bold group-hover:text-accent transition-colors"
+            >{COMPANY.phone_display}</span
+          >
+        </a>
         <a
-          href="tel:900123456"
+          href={`tel:${COMPANY.phone}`}
           class="bg-accent-foreground text-white px-5 py-2 rounded font-bold hover:bg-accent transition-colors whitespace-nowrap"
         >
           Llamar Ahora
@@ -96,11 +100,11 @@ import { Phone, Menu } from "lucide-react";
     <div class="pt-4 pb-3 border-t border-border">
       <div class="flex items-center justify-center px-5 gap-4">
         <Phone className="text-accent-foreground" />
-        <div class="text-lg font-bold">900 123 456</div>
+        <div class="text-lg font-bold">{COMPANY.phone_display}</div>
       </div>
       <div class="mt-3 px-2 space-y-1">
         <a
-          href="tel:900123456"
+          href={`tel:${COMPANY.phone}`}
           class="block text-center bg-accent-foreground text-white px-5 py-2 rounded font-bold hover:bg-accent transition-colors whitespace-nowrap"
         >
           Llamar Ahora

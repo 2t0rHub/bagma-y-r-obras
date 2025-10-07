@@ -1,5 +1,6 @@
 ---
 import Logo from "./ui/Logo.astro";
+import { COMPANY, SITE } from "@/config/config";
 import {
   Facebook,
   Twitter,
@@ -14,15 +15,15 @@ import {
 <footer class="bg-chambray-950 text-chambray-200">
   <div class="container mx-auto px-4 py-16">
     <div
-      class="grid gap-12 text-center md:grid-cols-2 lg:grid-cols-4 lg:text-left"
+      class="grid gap-12 text-center md:grid-cols-2 lg:grid-cols-6 lg:text-left"
     >
       <!-- Columna 1: Logo y Descripción -->
-      <div class="flex flex-col items-center lg:items-start">
+      <div class="flex flex-col items-center lg:items-start lg:col-span-2">
         <div class="flex items-center gap-3">
-          <Logo />
-          <span class="text-2xl font-bold text-white">Bagma & R</span>
+          <Logo className="bg-white bg-clip-border" />
+          <span class="text-2xl font-bold text-white">{COMPANY.name}</span>
         </div>
-        <p class="mt-4 text-sm text-chambray-300 max-w-xs">
+        <p class="mt-4 text-sm text-chambray-300 max-w-md">
           Soluciones integrales en climatización y reformas para tu hogar y
           negocio.
         </p>
@@ -33,20 +34,22 @@ import {
         <h3 class="font-bold text-lg text-white mb-4">Navegación</h3>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="#servicios" class="hover:text-white transition-colors"
-              >Servicios</a>
+            <a href="/#services" class="hover:text-white transition-colors"
+              >Servicios</a
+            >
           </li>
           <li>
-            <a href="#precios" class="hover:text-white transition-colors"
-              >Precios</a>
+            <a href="/#why-us" class="hover:text-white transition-colors"
+              >Por qué elegirnos</a
+            >
           </li>
           <li>
-            <a href="#garantias" class="hover:text-white transition-colors"
-              >Garantías</a>
+            <a href="/#faq" class="hover:text-white transition-colors">FAQ</a>
           </li>
           <li>
-            <a href="#contacto" class="hover:text-white transition-colors"
-              >Contacto</a>
+            <a href="/#contact" class="hover:text-white transition-colors"
+              >Contacto</a
+            >
           </li>
         </ul>
       </div>
@@ -57,16 +60,19 @@ import {
         <ul class="space-y-3 text-sm">
           <li class="flex items-start justify-center lg:justify-start gap-3">
             <MapPin className="w-4 h-4 mt-1 text-chambray-400 flex-shrink-0" />
-            <span>Calle Falsa 123, 28080 Madrid, España</span>
+            <span>{COMPANY.address}</span>
           </li>
           <li class="flex items-center justify-center lg:justify-start gap-3">
             <Phone className="w-4 h-4 text-chambray-400 flex-shrink-0" />
-            <a href="tel:900123456" class="hover:text-white">900 123 456</a>
+            <a href={`tel:${COMPANY.phone}`} class="hover:text-white"
+              >{COMPANY.phone_display}</a
+            >
           </li>
           <li class="flex items-center justify-center lg:justify-start gap-3">
             <Mail className="w-4 h-4 text-chambray-400 flex-shrink-0" />
-            <a href="mailto:info@bagmar.com" class="hover:text-white"
-              >info@bagmar.com</a
+            <a
+              href={`mailto:${COMPANY.email}`}
+              class="hover:text-white break-all">{COMPANY.email}</a
             >
           </li>
         </ul>
@@ -86,13 +92,38 @@ import {
           >
         </div>
       </div>
+      <!-- Columna 5: Legal -->
+      <div>
+        <h3 class="font-bold text-lg text-white mb-4">Legal</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/aviso-legal" class="hover:text-white transition-colors"
+              >Aviso Legal</a
+            >
+          </li>
+          <li>
+            <a
+              href="/politica-de-privacidad"
+              class="hover:text-white transition-colors"
+              >Política de Privacidad</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-    <div
-      class="mt-12 border-t border-chambray-800 pt-8 text-center text-sm text-chambray-400"
-    >
-      <p>
-        &copy; {new Date().getFullYear()} Bagma & R Obras. Todos los derechos reservados.
-      </p>
-    </div>
+  </div>
+  <div
+    class="mt-12 border-t border-chambray-800 pt-8 text-center text-sm text-chambray-400"
+  >
+    <p>
+      &copy; {new Date().getFullYear()}
+      {COMPANY.name}. Todos los derechos reservados. | <a
+        href="/aviso-legal"
+        class="hover:text-white transition-colors">Aviso Legal</a
+      > | <a
+        href="/politica-de-privacidad"
+        class="hover:text-white transition-colors">Política de Privacidad</a
+      >
+    </p>
   </div>
 </footer>
