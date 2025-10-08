@@ -1,0 +1,167 @@
+---
+import { Button } from "@/components/ui/button.tsx";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import { Textarea } from "@/components/ui/textarea.tsx";
+import { CheckCircle2 } from "lucide-react";
+---
+
+<Card className="bg-chambray-50 border-0 shadow-lg flex flex-col">
+  <CardHeader>
+    <CardTitle className="text-3xl text-chambray-900"
+      >Envíanos un mensaje</CardTitle
+    >
+  </CardHeader>
+  <CardContent id="form-container" className="flex-grow flex">
+    <!-- Form -->
+    <form id="contact-form" class="space-y-4 flex flex-col w-full">
+      <div class="space-y-1">
+        <label for="name" class="text-sm font-medium text-chambray-700"
+          >Tu Nombre <span class="text-red-500">*</span></label
+        >
+        <Input id="name" type="text" name="name" required />
+      </div>
+      <div class="space-y-1">
+        <label for="email" class="text-sm font-medium text-chambray-700"
+          >Tu Email <span class="text-red-500">*</span></label
+        >
+        <Input id="email" type="email" name="email" required />
+      </div>
+      <div class="space-y-1">
+        <label for="phone" class="text-sm font-medium text-chambray-700"
+          >Tu Teléfono <span class="text-red-500">*</span></label
+        >
+        <Input
+          id="phone"
+          type="tel"
+          name="phone"
+          pattern="[0-9\s+]{9,15}"
+          title="Por favor, introduce un número de teléfono válido (9-15 dígitos)."
+          required
+        />
+      </div>
+      <div class="space-y-1">
+        <label for="subject" class="text-sm font-medium text-chambray-700"
+          >Asunto</label
+        >
+        <Input id="subject" type="text" name="subject" />
+      </div>
+      <div class="space-y-1 flex-grow flex flex-col">
+        <label for="message" class="text-sm font-medium text-chambray-700"
+          >Tu Mensaje <span class="text-red-500">*</span></label
+        >
+        <Textarea id="message" name="message" className="flex-grow" required />
+      </div>
+      <div class="space-y-1">
+        <div class="flex items-start space-x-2">
+          <input
+            type="checkbox"
+            id="privacy"
+            name="privacy"
+            required
+            class="mt-1"
+          />
+          <label for="privacy" class="text-sm text-chambray-600">
+            He leído y acepto la <a
+              href="/politica-de-privacidad"
+              target="_blank"
+              class="underline hover:text-chambray-900"
+              >Política de Privacidad</a
+            >. <span class="text-red-500">*</span>
+          </label>
+        </div>
+      </div>
+      <Button
+        type="submit"
+        size="lg"
+        id="submit-button"
+        className="w-full bg-chambray-600 hover:bg-chambray-700 text-white disabled:opacity-50"
+      >
+        Enviar Mensaje
+      </Button>
+      <p id="form-error" class="text-red-600 text-sm mt-2 text-center hidden">
+      </p>
+    </form>
+    <!-- Confirmation Message -->
+    <div id="confirmation-message" class="hidden w-full">
+      <div
+        class="flex flex-col items-center justify-center text-center h-full w-full"
+      >
+        <CheckCircle2 className="w-16 h-16 text-green-600 mb-4" />
+        <h3 class="text-2xl font-bold text-chambray-900">¡Mensaje Enviado!</h3>
+        <p class="mt-2 text-chambray-600">
+          Gracias por contactarnos. Te responderemos lo antes posible.
+        </p>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const confirmationMessage = document.getElementById("confirmation-message");
+  const submitButton = document.getElementById(
+    "submit-button"
+  ) as HTMLButtonElement | null;
+  const errorMessageElement = document.getElementById("form-error");
+
+  if (
+    form instanceof HTMLFormElement &&
+    confirmationMessage &&
+    submitButton &&
+    errorMessageElement
+  ) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      // 1. Deshabilitar botón y limpiar errores previos
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+      errorMessageElement.classList.add("hidden");
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          // 2. Éxito: Mostrar mensaje de confirmación
+          form.style.display = "none";
+          confirmationMessage.style.display = "flex";
+
+          setTimeout(() => {
+            confirmationMessage.style.display = "none";
+            form.style.display = "flex";
+            submitButton.disabled = false;
+            submitButton.textContent = "Enviar Mensaje";
+            form.reset();
+          }, 10000);
+        } else {
+          // 3. Error del servidor: Mostrar mensaje de error
+          const errorData = await response.json();
+          throw new Error(errorData.message || "No se pudo enviar el mensaje.");
+        }
+      } catch (error) {
+        // 4. Error (red o servidor): Mostrar mensaje y reactivar botón
+        console.error("Error en el formulario:", error);
+        errorMessageElement.textContent =
+          error instanceof Error
+            ? error.message
+            : "Ocurrió un error inesperado.";
+        errorMessageElement.classList.remove("hidden");
+        submitButton.disabled = false;
+        submitButton.textContent = "Enviar Mensaje";
+      }
+    });
+  }
+</script>
