@@ -12,47 +12,49 @@ interface FaqItem {
   answer: string;
 }
 
-interface FaqListProps {
+interface Props {
   data: FaqItem[];
 }
 
-export function FaqList({ data }: FaqListProps) {
+export default function FaqList({ data }: Props) {
   return (
-    <Accordion type="single" collapsible className="w-full space-y-4">
-      {data.map((item) => (
-        <div
-          key={item.id}
-          itemScope
-          itemProp="mainEntity"
-          itemType="https://schema.org/Question"
-          className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-        >
-          <AccordionItem value={item.id} className="border-b-0">
+    <div
+      className="max-w-3xl mx-auto"
+      itemScope
+      itemType="https://schema.org/FAQPage"
+    >
+      <Accordion type="single" collapsible className="w-full space-y-4">
+        {data.map((faq) => (
+          <AccordionItem
+            key={faq.id}
+            value={faq.id}
+            itemScope
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
+            className="border-b-0 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+          >
             <AccordionTrigger className="p-6 text-left hover:no-underline">
               <h3
                 itemProp="name"
                 className="text-lg font-semibold text-chambray-800"
               >
-                {item.question}
+                {faq.question}
               </h3>
             </AccordionTrigger>
-            <AccordionContent className="px-6 pb-6 pt-0">
+            <AccordionContent className="px-6 pb-6">
               <div
                 itemScope
                 itemProp="acceptedAnswer"
                 itemType="https://schema.org/Answer"
               >
-                <p
-                  itemProp="text"
-                  className="text-chambray-700 text-base leading-relaxed"
-                >
-                  {item.answer}
+                <p itemProp="text" className="text-chambray-600">
+                  {faq.answer}
                 </p>
               </div>
             </AccordionContent>
           </AccordionItem>
-        </div>
-      ))}
-    </Accordion>
+        ))}
+      </Accordion>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 ---
-import { FaqList } from "@/components/FaqList.tsx";
+import FaqList from "@/components/FaqList.tsx";
 
-const faqData = [
+const faqs = [
   {
     id: "item-1",
     question: "¿Qué tipo de servicios de climatización ofrecen?",
@@ -47,14 +47,6 @@ const faqData = [
         total confianza.
       </p>
     </div>
-
-    <!-- Accordion with Schema.org for SEO -->
-    <div
-      class="max-w-3xl mx-auto"
-      itemscope
-      itemtype="https://schema.org/FAQPage"
-    >
-      <FaqList client:visible data={faqData} />
-    </div>
+    <FaqList client:visible data={faqs} />
   </div>
 </section>

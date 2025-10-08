@@ -1,0 +1,53 @@
+---
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion.tsx";
+
+interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  data: FaqItem[];
+}
+
+const { data } = Astro.props;
+---
+
+<div class="max-w-3xl mx-auto" itemscope itemtype="https://schema.org/FAQPage">
+  <Accordion type="single" collapsible className="w-full space-y-4">
+    {
+      data.map((faq) => (
+        <AccordionItem
+          value={faq.id}
+          itemScope
+          itemProp="mainEntity"
+          itemType="https://schema.org/Question"
+          className="border-b-0 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <AccordionTrigger className="p-6 text-left hover:no-underline">
+            <h3 itemprop="name" class="text-lg font-semibold text-chambray-800">
+              {faq.question}
+            </h3>
+          </AccordionTrigger>
+          <AccordionContent className="px-6 pb-6">
+            <div
+              itemscope
+              itemprop="acceptedAnswer"
+              itemtype="https://schema.org/Answer"
+            >
+              <p itemprop="text" class="text-chambray-600">
+                {faq.answer}
+              </p>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      ))
+    }
+  </Accordion>
+</div>

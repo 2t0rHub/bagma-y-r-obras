@@ -2,21 +2,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY } from "@/config/config";
 import ContactForm from "@/components/ContactForm.astro";
-import FaqSchema from "@/components/FaqSchema.astro";
-
-// Define tus preguntas y respuestas aquí
-const faqs = [
-  {
-    question: "¿Qué tipo de servicios de climatización ofrecen?",
-    answer:
-      "Ofrecemos instalación, mantenimiento y reparación de sistemas de aire acondicionado, calderas de gas, aerotermia y suelo radiante para particulares y empresas.",
-  },
-  {
-    question: "¿Realizan reformas integrales?",
-    answer:
-      "Sí, nos especializamos en reformas integrales de viviendas y locales comerciales, gestionando todo el proyecto desde el diseño inicial hasta la entrega final.",
-  },
-];
 ---
 
 <section id="contact" class="py-24 sm:py-32 bg-white">
@@ -118,31 +103,4 @@ const faqs = [
       <ContactForm />
     </div>
   </div>
-
-  <!-- FAQ Section -->
-  <div class="container mx-auto px-4 mt-24 sm:mt-32">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-chambray-900">
-        Preguntas Frecuentes
-      </h2>
-      <p class="mt-4 text-lg text-chambray-600">
-        Resolvemos algunas de las dudas más comunes de nuestros clientes.
-      </p>
-    </div>
-    <div class="max-w-3xl mx-auto space-y-6">
-      {
-        faqs.map((faq) => (
-          <div class="border-b border-chambray-200 pb-4">
-            <h3 class="text-xl font-semibold text-chambray-800">
-              {faq.question}
-            </h3>
-            <p class="mt-2 text-chambray-600">{faq.answer}</p>
-          </div>
-        ))
-      }
-    </div>
-  </div>
 </section>
-
-<!-- Inyecta el esquema JSON-LD para el SEO de las FAQs -->
-<FaqSchema faqs={faqs} />
