@@ -1,0 +1,29 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+interface Props {
+  faqs: FAQ[];
+}
+
+const { faqs } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      // Simplemente usamos la respuesta directamente.
+      // Si en el futuro la respuesta contiene HTML, esto seguirá funcionando.
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<!-- src/components/FaqSchema.astro --><!-- Este componente no renderiza nada visible, solo el script JSON-LD para SEO -->
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
