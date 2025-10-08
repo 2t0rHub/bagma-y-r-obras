@@ -62,21 +62,26 @@ const heroStats = [
       <div
         class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
       >
-        <Button
-          size="lg"
-          className="bg-chambray-500 hover:bg-chambray-500/90 text-white text-lg hover:scale-105 transition-all"
-          client:load
-        >
-          <a href="#contact"> Solicitar Presupuesto </a>
-        </Button>
-        <Button
-          size="lg"
-          variant="outline"
-          className="border-white text-black hover:bg-white/10 text-lg hover:text-white"
-          client:load
-        >
-          <a href="#services"> Ver Servicios </a>
-        </Button>
+        <a href="#contact">
+          <Button
+            size="lg"
+            className="font-bold bg-chambray-700 hover:bg-chambray-500/90 text-white text-lg hover:scale-105 transition-all"
+            client:load
+          >
+            Solicitar Presupuesto
+          </Button>
+        </a>
+
+        <a href="#services">
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white text-black hover:bg-white/10 text-lg hover:text-white"
+            client:load
+          >
+            Ver Servicios
+          </Button>
+        </a>
       </div>
     </div>
 
