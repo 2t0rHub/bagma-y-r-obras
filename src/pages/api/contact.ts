@@ -60,9 +60,15 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (error) {
       console.error("Resend error:", error);
-      return new Response(JSON.stringify({ message: error.message }), {
-        status: 500,
-      });
+      return new Response(
+        JSON.stringify({
+          message:
+            "Ha habido un error a la hora de enviar el mensaje. Inténtalo de nuevo más tarde.",
+        }),
+        {
+          status: 500,
+        }
+      );
     }
 
     return new Response(
