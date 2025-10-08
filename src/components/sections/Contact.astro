@@ -30,13 +30,7 @@ import ContactForm from "@/components/ContactForm.astro";
           </p>
         </div>
 
-        <div
-          class="space-y-6 text-chambray-700"
-          itemscope
-          itemtype="http://schema.org/LocalBusiness"
-        >
-          <meta itemprop="name" content={COMPANY.name} />
-          <meta itemprop="image" content="/logo.png" />
+        <div class="space-y-6 text-chambray-700">
           <!-- Asegúrate de tener un logo.png en tu carpeta public -->
           <div class="flex items-start gap-4">
             <Phone className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
@@ -44,7 +38,6 @@ import ContactForm from "@/components/ContactForm.astro";
               <h4 class="font-semibold">Teléfono</h4>
               <a
                 href={`tel:${COMPANY.phone}`}
-                itemprop="telephone"
                 class="hover:text-chambray-900 transition-colors"
                 >{COMPANY.phone_display}</a
               >
@@ -56,28 +49,19 @@ import ContactForm from "@/components/ContactForm.astro";
               <h4 class="font-semibold">Email</h4>
               <a
                 href={`mailto:${COMPANY.email}`}
-                itemprop="email"
                 class="hover:text-chambray-900 hover:underline transition-colors"
                 >{COMPANY.email}</a
               >
             </div>
           </div>
-          <div
-            class="flex items-start gap-4"
-            itemprop="address"
-            itemscope
-            itemtype="http://schema.org/PostalAddress"
-          >
+          <div class="flex items-start gap-4">
             <MapPin className="w-6 h-6 text-chambray-600 mt-1 flex-shrink-0" />
             <div>
               <h4 class="font-semibold">Ubicación</h4>
               <p>
-                <span itemprop="streetAddress">{COMPANY.street}</span>,
-                <span itemprop="postalCode">{COMPANY.postal_code}</span>,
-                <span itemprop="addressLocality"
-                  >{COMPANY.city}, {COMPANY.region}</span
-                >,
-                <span itemprop="addressCountry">{COMPANY.country}</span>
+                {COMPANY.street}, {COMPANY.postal_code}, {COMPANY.city}, {
+                  COMPANY.region
+                }, {COMPANY.country}
               </p>
             </div>
           </div>

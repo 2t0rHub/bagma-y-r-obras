@@ -31,7 +31,9 @@ export default function FaqList({ data }: Props) {
             </h3>
           </AccordionTrigger>
           <AccordionContent className="px-6 pb-6">
-            <p className="text-chambray-600">{faq.answer}</p>
+            <p className="text-base leading-relaxed text-chambray-600">
+              {faq.answer}
+            </p>
           </AccordionContent>
         </AccordionItem>
       ))}

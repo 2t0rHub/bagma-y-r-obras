@@ -1,6 +1,5 @@
 ---
 import FaqList from "@/components/FaqList.tsx";
-import FaqSchema from "@/components/FaqSchema.astro";
 
 const faqs = [
   {
@@ -53,9 +52,3 @@ const faqs = [
     </div>
   </div>
 </section>
-
-<!-- 
-  Esto inyecta los datos estructurados JSON-LD en el <head> de la página.
-  Es invisible para el usuario pero perfectamente legible para Google.
--->
-<FaqSchema faqs={faqs} />

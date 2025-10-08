@@ -1,0 +1,52 @@
+---
+import { COMPANY } from "@/config/config";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs?: FAQ[];
+}
+
+const { faqs } = Astro.props;
+
+const schemas = [];
+
+// 1. Schema para LocalBusiness
+schemas.push({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: COMPANY.name,
+  image: new URL("/logo.png", Astro.site).href, // URL absoluta de la imagen
+  telephone: COMPANY.phone,
+  email: COMPANY.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: COMPANY.street,
+    addressLocality: COMPANY.city,
+    postalCode: COMPANY.postal_code,
+    addressRegion: COMPANY.region,
+    addressCountry: COMPANY.country,
+  },
+});
+
+// 2. Schema para FAQPage (si existen faqs)
+if (faqs && faqs.length > 0) {
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  });
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas)} />
