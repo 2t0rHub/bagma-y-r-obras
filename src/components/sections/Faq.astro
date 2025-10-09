@@ -1,5 +1,6 @@
 ---
 import FaqList from "@/components/FaqList.tsx";
+import FaqSchema from "@/components/FaqSchema.astro";
 
 const faqs = [
   {
@@ -35,6 +36,8 @@ const faqs = [
 ];
 ---
 
+<!-- Schema for Google Rich Results -->
+<FaqSchema {faqs} />
 <section id="faq" class="py-24 sm:py-32 bg-chambray-50">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
