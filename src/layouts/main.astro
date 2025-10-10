@@ -17,10 +17,19 @@ const default_description =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Favicon para navegadores modernos -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo-icon.png" />
-    <!-- Icono para dispositivos Apple -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/logo-icon.png" />
+    <!-- 
+      Directrices de Google para Favicons:
+      1. El tamaño debe ser múltiplo de 48px (ej. 48x48, 96x96).
+      2. La URL debe ser estable y absoluta.
+    -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href={new URL("/logo-icon.png", Astro.site).href}
+    />
+    <!-- Icono para dispositivos Apple (no necesita ser absoluto) -->
+    <link rel="apple-touch-icon" href="/logo-icon.png" />
     <!-- Icono genérico (fallback) -->
     <link rel="shortcut icon" href="/logo-icon.png" />
     <title>{content?.title ? content.title : default_title}</title>
