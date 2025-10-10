@@ -15,7 +15,7 @@ export const COMPANY = {
   city: "Arganda del Rey",
   postal_code: "28500",
   region: "Madrid",
-  country: "España",
+  country: "ES",
   email: "info@bagma-r.es",
   phone: "+34659358953",
   phone_display: "659 358 953",

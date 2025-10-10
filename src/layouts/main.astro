@@ -8,16 +8,21 @@ const { content } = Astro.props;
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/800.css";
 
-const default_title = "Bagma & R Obras";
+const default_title = "Bagma & R Soluciones y Obras";
 const default_description =
-  "Bagma & R Obras y soluciones es una empresa especializada en reformas del hogar y climatización, pide tu presupuesto!";
+  "Bagma & R Soluciones y Obras es una empresa especializada en reformas del hogar y climatización, pide tu presupuesto!";
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/logo-icon.png" />
+    <!-- Favicon para navegadores modernos -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo-icon.png" />
+    <!-- Icono para dispositivos Apple -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo-icon.png" />
+    <!-- Icono genérico (fallback) -->
+    <link rel="shortcut icon" href="/logo-icon.png" />
     <title>{content?.title ? content.title : default_title}</title>
     <meta
       name="description"
